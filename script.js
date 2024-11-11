@@ -32,7 +32,7 @@ function generatePDF() {
     const { jsPDF } = window.jspdf;
 
     // Convert input fields to text for PDF rendering
-    document.querySelectorAll(".description, .rate, .qty").forEach(input => {
+    document.querySelectorAll("input").forEach(input => {
         const text = document.createElement("span");
         text.className = input.className;
         text.innerText = input.value || ""; // Preserve input value as text
@@ -70,9 +70,9 @@ function generatePDF() {
         pdf.save("invoice_a5.pdf");
 
         // Restore input fields after PDF generation
-        document.querySelectorAll(".description, .rate, .qty").forEach(span => {
+        document.querySelectorAll("span").forEach(span => {
             const input = document.createElement("input");
-            input.type = span.className.includes("rate") || span.className.includes("qty") ? "number" : "text";
+            input.type = span.id === "invoice-date" ? "date" : "text";
             input.className = span.className;
             input.value = span.innerText;
             span.parentNode.replaceChild(input, span);
@@ -82,4 +82,11 @@ function generatePDF() {
         document.querySelectorAll(".no-print").forEach(el => el.style.display = "block");
     });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Set today's date as the default value for the date input
+    const dateInput = document.getElementById("invoice-date");
+    const today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
+    dateInput.value = today; // Set the value of the date input to today's date
+});
 

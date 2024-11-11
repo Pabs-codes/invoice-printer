@@ -254,3 +254,46 @@ button.no-print {
         font-size: 0.8em;
     }
 }
+
+
+
+.invoice-info {
+    margin-top: 20px;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .invoice-info p {
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+  }
+  
+  .invoice-info input[type="text"],
+  .invoice-info input[type="date"] {
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 0.9em;
+    color: #333;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    width: calc(100% - 120px); /* Adjust to fit layout */
+    max-width: 300px; /* Limit the width for better alignment */
+  }
+  
+  @media (max-width: 768px) {
+    .invoice-info {
+      font-size: 0.9em;
+    }
+  
+    .invoice-info input[type="text"],
+    .invoice-info input[type="date"] {
+      width: 100%; /* Full width on smaller screens */
+      margin-left: 0;
+      margin-top: 5px;
+    }
+  }
+  
