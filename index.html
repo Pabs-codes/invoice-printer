@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="invoice-container">
+    <header>
+        <div class="header-left">
+            <img src="lslogo.png" alt="Lion Steel Pvt Ltd Logo" class="logo">
+            <h1>LION STEEL PVT LTD</h1>
+            <p>WITHIN A SINGLE FRAME MARKET</p>
+        </div>
+        <div class="header-right">
+            <p>Phone: +94 77 320 9009</p>
+            <p>Web: lionsteel.com@gmail.com</p>
+            <p>ADD: 321, Old Moor Street, 01200</p>
+            <p>Colombo, Sri Lanka</p>
+        </div>
+    </header>
+    <section class="invoice-info">
+        <p><strong>ISSUED TO:</strong> E.M.D Group Of Companies</p>
+        <p><strong>DATE:</strong> <span id="invoice-date">11/11/2024</span></p>
+    </section>
+    <section class="invoice-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Description</th>
+                    <th>Rate</th>
+                    <th>Qty</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="invoice-items">
+                <!-- Dynamic rows will be added here -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="total-label">Total:</td>
+                    <td id="total-amount">0.00</td>
+                </tr>
+            </tfoot>
+        </table>
+        <button class="no-print" onclick="addRow()">Add Item</button>
+        <button class="no-print" onclick="generatePDF()">Download PDF</button>
+    </section>
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
